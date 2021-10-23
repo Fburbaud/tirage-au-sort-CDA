@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tirage au sort</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+</head>
+<body class="d-flex h-100 text-center text-dark">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <main class="px-3">
+          <h1 class="my-4">Tirage au sort CDA</h1>
+          <p class="lead my-4">Stagiaires en stress:</p>
+          <!-- contenant du tableau original à afficher -->
+          <h5 class="my-4" id="tableauInital"></h5>
+          <p class="lead my-5">
+            <a href="#" class="btn btn-lg btn-secondary fw-bold border-dark bg-dark text-white" id="lancer">Lancer</a>
+          </p>
+          <!-- contenant du compte à rebours et du résultat -->
+          <h2 class="my-5 text-danger" id="resultat"></h2>
+        </main>
+        <div class="mt-auto text-dark">
+          <!-- contenant des éléments déjà tirées au sort -->
+            <div class="lead" id="pickedStudents"></div>
+        </div>
+    </div>
+    
+    <script src="tirageausort.js"></script>
+</body>
+</html>
