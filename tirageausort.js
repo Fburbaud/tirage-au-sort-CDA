@@ -26,21 +26,29 @@ function sortie(tableau, indice, tableau2) {
     }
     return indice;
 }
+//création d'une fonction permettant de désactiver le bouton lancer quand le tableau de base est vide.
+function stopTirage(tableau) {
+    if(tableau.length == 0){
+        btnlancer.style.display = "none";
+    }
+}
 
 //création de l'évènement: quand on clique sur le bouton "lancer", le compte à rebours de 3sec s'enclenche
 //et à sa fin (clearInterval) on annonce la personne tirée au sort, on met à jour le tableau de base,
-//et on affiche les personnes déjà tirées au sort avec le tableau vide sous forme de liste espacée de " "
-lancer.addEventListener("click", function(){
-    var timeleft = 3;
-    var downloadTimer = setInterval(function(){
-    if(timeleft <= 0){
-        clearInterval(downloadTimer);
-        document.getElementById("resultat").innerHTML = sortie(students, doRandom(students), pickedStudents);
-        document.querySelector("#tableauInital").innerHTML = students.join(" ");
-        document.querySelector("#pickedStudents").innerHTML = "Stagiaire(s) pouvant se reposer: "+pickedStudents.join(" ");
-    } else {
-        document.getElementById("resultat").innerHTML = timeleft;
-    }
-    timeleft -= 1;
-    }, 1000);
-})
+//et on affiche les personnes déjà tirées au sort avec le tableau vide sous forme de liste espacée de " ".
+btnlancer.addEventListener("click", function(){
+        var timeleft = 3;
+        var downloadTimer = setInterval(function(){
+        if(timeleft <= 0){
+            clearInterval(downloadTimer);
+            document.getElementById("resultat").innerHTML = sortie(students, doRandom(students), pickedStudents);
+            stopTirage(students);
+            document.querySelector("#tableauInital").innerHTML = students.join(" ");
+            document.querySelector("#pickedStudents").innerHTML = "Stagiaire(s) pouvant se reposer: "+pickedStudents.join(" ");
+        } else {
+            document.getElementById("resultat").innerHTML = timeleft;
+        }
+        timeleft -= 1;
+        }, 1000);
+        console.log(students);
+});
